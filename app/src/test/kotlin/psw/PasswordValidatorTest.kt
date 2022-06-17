@@ -14,8 +14,13 @@ class PasswordValidatorTest {
         assertEquals(false, passwordValidator.valid(passLessOrEqual8))
     }
 
+    @Test fun password_should_containsACapitalLetter() {
+        val passAllLowerCase = "abcdefghij"
+        assertEquals(false, passwordValidator.valid(passAllLowerCase))
+    }
+
     @Test fun validPassword_be_valid() {
-        val validPassword = "123456789"
+        val validPassword = "12345678A"
         assertEquals(true, passwordValidator.valid(validPassword))
     }
 }
