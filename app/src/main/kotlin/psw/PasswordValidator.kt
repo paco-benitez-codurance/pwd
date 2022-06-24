@@ -1,16 +1,18 @@
 package psw
 
+import psw.Validators.hasNumber
+import psw.Validators.hasUnderscore
+import psw.Validators.hasUpperCase
+import psw.Validators.validLength
+
+
 class PasswordValidator {
-    fun valid(pass: String) =
-        validLength(pass) && hasUpperCase(pass) && hasNumber(pass) && hasUnderscore(pass)
 
-    private fun hasUpperCase(pass: String) = pass.contains("[A-Z]".toRegex())
+    private val validImp = validLength + hasUpperCase + hasNumber + hasUnderscore
 
-    private fun validLength(pass: String) = pass.length > 8
+    val valid = validImp.valid
 
-    private fun hasNumber(pass: String) = pass.contains("[0-9]".toRegex())
-
-    private fun hasUnderscore(pass: String) = pass.contains("_")
 }
+
 
 
