@@ -1,13 +1,8 @@
 package psw
 
 class PasswordValidator {
-    fun valid(pass: String): Boolean {
-        if (!validLength(pass)) return false
-        if (!hasUpperCase(pass)) return false
-        if (!hasNumber(pass)) return false
-        if (!hasUnderscore(pass)) return false
-        return true
-    }
+    fun valid(pass: String) =
+        validLength(pass) && hasUpperCase(pass) && hasNumber(pass) && hasUnderscore(pass)
 
     private fun hasUpperCase(pass: String) = pass.contains("[A-Z]".toRegex())
 
@@ -17,3 +12,5 @@ class PasswordValidator {
 
     private fun hasUnderscore(pass: String) = pass.contains("_")
 }
+
+
