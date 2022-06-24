@@ -3,7 +3,9 @@ package psw
 object Validators {
     val hasUpperCase = { pass: String -> pass.contains("[A-Z]".toRegex()) }.toVal()
 
-    val validLength = { pass: String -> pass.length > 8 }.toVal()
+    val hasLowerCase = { pass: String -> pass.contains("[a-z]".toRegex()) }.toVal()
+
+    fun maxLength(maxLength: Int) = { pass: String -> pass.length > maxLength }.toVal()
 
     val hasNumber = { pass: String -> pass.contains("[0-9]".toRegex()) }.toVal()
 
