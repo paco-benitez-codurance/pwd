@@ -2,13 +2,17 @@ package psw.impl
 
 
 internal object Validators {
-    val hasUpperCase = { pass: String -> pass.contains("[A-Z]".toRegex()) }.toVal()
 
-    val hasLowerCase = { pass: String -> pass.contains("[a-z]".toRegex()) }.toVal()
+    private fun regexpValidator(reg: String): IsValid = { pass: String -> pass.contains(reg.toRegex()) }.toVal()
+
+    val hasUpperCase = regexpValidator("[A-Z]")
+
+    val hasLowerCase = regexpValidator("[a-z]")
 
     fun maxLength(maxLength: Int) = { pass: String -> pass.length > maxLength }.toVal()
 
-    val hasNumber = { pass: String -> pass.contains("[0-9]".toRegex()) }.toVal()
+    val hasNumber = regexpValidator("[0-9]")
 
     val hasUnderscore = { pass: String -> pass.contains("_") }.toVal()
+
 }
