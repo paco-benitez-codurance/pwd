@@ -1,4 +1,5 @@
-package psw
+package psw.impl
+
 
 internal object Validators {
     val hasUpperCase = { pass: String -> pass.contains("[A-Z]".toRegex()) }.toVal()

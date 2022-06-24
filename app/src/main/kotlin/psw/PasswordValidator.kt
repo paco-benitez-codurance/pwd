@@ -1,5 +1,7 @@
 package psw
 
+import psw.impl.IsValid
+
 enum class Validation(internal val isValid: IsValid) {
     VALIDATION1(Validations.valid1Imp),
     VALIDATION2(Validations.valid2Imp),

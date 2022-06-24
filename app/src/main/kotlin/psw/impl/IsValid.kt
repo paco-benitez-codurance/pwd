@@ -1,4 +1,4 @@
-package psw
+package psw.impl
 
 internal inline fun ((String) -> Boolean).toVal(): IsValid = IsValid(this)
 
