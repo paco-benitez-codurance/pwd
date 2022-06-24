@@ -1,18 +1,13 @@
 package psw
 
-import psw.Validators.hasLowerCase
-import psw.Validators.hasNumber
-import psw.Validators.hasUnderscore
-import psw.Validators.hasUpperCase
-import psw.Validators.maxLength
+enum class Validation(internal val isValid: IsValid) {
+    VALIDATION1(Validations.valid1Imp),
+    VALIDATION2(Validations.valid2Imp),
+    VALIDATION3(Validations.valid3Imp)
+}
 
-
-class PasswordValidator {
-
-    private val validImp = maxLength(8) + hasUpperCase + hasLowerCase + hasNumber + hasUnderscore
-
-    val valid = validImp.valid
-
+class PasswordValidator(validation: Validation) {
+    val valid = validation.isValid.valid
 }
 
 
